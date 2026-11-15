@@ -1,0 +1,23 @@
+@import "tailwindcss";
+@import "@fontsource-variable/bricolage-grotesque";
+@import "@fontsource/space-mono/400.css";
+@import "@fontsource/space-mono/700.css";
+
+@theme {
+  --color-navy: #062a50;
+  --color-cream: #e4ebcb;
+  --color-sun: #f8cb41;
+  --color-leaf: #96c13d;
+  --color-sky: #2e86b8;
+  --font-display: "Bricolage Grotesque Variable", system-ui, sans-serif;
+  --font-mono: "Space Mono", ui-monospace, monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-cream font-mono text-navy antialiased;
+  }
+}

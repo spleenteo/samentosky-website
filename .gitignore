@@ -1,0 +1,10 @@
+node_modules
+dist
+.astro
+.DS_Store
+.wrangler
+.env*
+
+# materiale interno, non pubblicare
+*.pen
+screenshot*.png

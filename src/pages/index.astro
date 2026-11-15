@@ -1,0 +1,216 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const tracks = [
+  { title: 'Ombra e illusione', production: 78 },
+  { title: "La scimmia d'oro", production: 86 },
+  { title: "L'attesa", production: 71 },
+  { title: 'Cometa', production: 92 },
+  { title: 'Vuoto al centro', production: 67 },
+  { title: 'Tutto e niente', production: 84 },
+  { title: 'Nel deserto', production: 73 },
+  { title: 'Belle stelle', production: 89 },
+  { title: 'Lo fai', production: 94 },
+  { title: 'La soglia', production: 81 },
+  { title: "L'ultimo domino", production: 69 },
+  { title: 'Tempo relativo', production: 76 },
+].map((t) => ({ ...t, experience: 0 }));
+
+const nav = [
+  { label: 'Il disco', href: '#disco' },
+  { label: 'Lato A', href: '#disco' },
+  { label: 'Lato B', href: '#disco' },
+  { label: 'Avvisami', href: '#avvisami' },
+];
+
+const strip = ['Lato A', '33⅓ giri', 'Samentosky Experience', 'Concept album', 'In arrivo'];
+
+const label = 'font-mono text-[13px] uppercase tracking-[0.2em]';
+---
+
+<Layout
+  title="Samentosky Experience"
+  description="Un concept album da ascoltare sul vinile, con cura, dall'inizio alla fine."
+>
+  <header class="relative isolate overflow-hidden bg-cream lg:aspect-[1440/1000]">
+    <nav class="relative z-20 flex items-center justify-between gap-6 px-6 py-6 lg:px-12 lg:py-8">
+      <a href="#" class={`${label} font-bold`}>Samentosky Experience</a>
+      <ul class="hidden gap-9 md:flex">
+        {nav.map((n) => (
+          <li>
+            <a href={n.href} class={`${label} tracking-[0.15em] hover:underline`}>{n.label}</a>
+          </li>
+        ))}
+      </ul>
+      <a href="#avvisami" class={`${label} font-bold md:hidden`}>Avvisami</a>
+    </nav>
+
+    <img
+      src="/img/vinile.webp"
+      alt=""
+      width="1760"
+      height="1760"
+      fetchpriority="high"
+      class="pointer-events-none mx-auto mt-6 w-[88%] max-w-[560px] lg:absolute lg:right-[-5.5%] lg:top-[7%] lg:mx-0 lg:mt-0 lg:w-[61%] lg:max-w-none"
+    />
+    <h1 class="sr-only">Samentosky Experience</h1>
+    <img
+      src="/img/logo.webp"
+      alt="Samentosky"
+      width="2000"
+      height="1041"
+      class="relative z-10 -mt-24 w-full sm:-mt-40 lg:absolute lg:left-[1.6%] lg:top-[21%] lg:mt-0 lg:w-[69.4%]"
+    />
+
+    <p class="relative z-10 px-6 pt-2 font-display text-[22px] font-medium leading-snug lg:absolute lg:left-12 lg:top-[12%] lg:max-w-[520px] lg:px-0 lg:pt-0">
+      Un concept album da ascoltare sul vinile.<br />
+      Con cura, dall'inizio alla fine, come si faceva un tempo.
+    </p>
+
+    <div class="relative z-10 flex flex-wrap items-center gap-6 px-6 pb-20 pt-6 lg:absolute lg:left-12 lg:top-[79%] lg:px-0 lg:pb-0 lg:pt-0 lg:gap-8">
+      <a
+        href="#avvisami"
+        class="inline-flex items-center gap-3 bg-navy px-8 py-5 font-mono text-sm font-bold uppercase tracking-[0.15em] text-sun transition hover:bg-sky hover:text-navy"
+      >
+        Avvisami all'uscita <span aria-hidden="true">→</span>
+      </a>
+      <a href="#disco" class={`${label} tracking-[0.15em] hover:underline`}>Scopri il disco</a>
+    </div>
+
+    <div class="absolute inset-x-0 bottom-0 z-20 hidden h-20 items-center justify-between bg-navy px-12 text-cream lg:flex">
+      {strip.map((s, i) => (
+        <>
+          {i > 0 && <span class="size-2 rounded-full bg-sun" />}
+          <span class="font-mono text-sm uppercase tracking-[0.2em]">{s}</span>
+        </>
+      ))}
+    </div>
+  </header>
+
+  <main>
+    <section id="manifesto" class="bg-navy px-6 py-24 text-cream lg:px-12 lg:py-36">
+      <div class="flex flex-col gap-8 lg:flex-row lg:gap-12">
+        <p class={`${label} text-sun lg:w-60 lg:shrink-0`}>01 / Manifesto</p>
+        <div class="flex flex-1 flex-col gap-10 lg:gap-12">
+          <h2 class="font-display text-5xl font-extrabold leading-[1.05] sm:text-6xl lg:text-7xl">
+            Un disco da ascoltare con cura.
+          </h2>
+          <div class="flex max-w-[560px] flex-col gap-6 text-[15px] leading-relaxed text-cream/80">
+            <p>
+              Samentosky Experience è un album da ascoltare per intero, un lato alla volta, come si
+              faceva un tempo con i vinili.
+            </p>
+            <p>Parla di specchi, di illusioni, di tempo e di vuoto: canzoni che guardano dentro.</p>
+            <p>
+              Lo potrai ascoltare gratis qui sul sito, in digitale, e prenotare il vinile in
+              preordine.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="disco" class="bg-cream px-6 py-24 lg:px-12 lg:py-36">
+      <div class="flex flex-col items-center gap-16 lg:flex-row lg:gap-24">
+        <div
+          class="flex aspect-square w-full max-w-[420px] shrink-0 flex-col items-center justify-center gap-2 rounded-full border-[6px] border-navy bg-gradient-to-b from-sun to-leaf"
+        >
+          <span class="font-mono text-7xl font-bold sm:text-8xl">33⅓</span>
+          <span class="font-mono text-sm uppercase tracking-[0.2em]">Giri al minuto</span>
+        </div>
+        <div class="flex w-full flex-col">
+          <p class={`${label} pb-6`}>02 / Il disco</p>
+          {[
+            ['Lato A', 'Un lato alla volta.', 'Si posa la puntina e si resta fino alla fine del lato. Il gesto fa parte dell\'ascolto.'],
+            ['Lato B', 'Poi si gira.', 'Girare il disco è una pausa, e un invito a restare: niente altro nel frattempo.'],
+          ].map(([l, t, d]) => (
+            <div class="flex flex-col gap-3 border-t border-navy py-10">
+              <span class={`${label} text-sky`}>{l}</span>
+              <h3 class="font-display text-4xl font-extrabold lg:text-5xl">{t}</h3>
+              <p class="max-w-xl text-base leading-relaxed">{d}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="lavori" class="bg-navy px-6 py-24 text-cream lg:px-12 lg:py-36">
+      <div class="flex flex-col gap-8 lg:flex-row lg:gap-12">
+        <p class={`${label} text-sun lg:w-60 lg:shrink-0`}>03 / Lavori in corso</p>
+        <div class="flex flex-1 flex-col gap-6">
+          <h2 class="font-display text-5xl font-extrabold leading-[1.05] sm:text-6xl lg:text-7xl">
+            Come sta andando.
+          </h2>
+          <p class="max-w-[640px] text-sm leading-relaxed tracking-wide text-cream/80">
+            PRODUZIONE: l'avanzamento della lavorazione di ogni brano.<br />
+            EXPERIENCE: l'ascolto del brano qui sul sito, gratis. Ancora a zero.
+          </p>
+        </div>
+      </div>
+
+      <ul class="mt-14 border-b border-cream/25">
+        {tracks.map((t) => (
+          <li class="flex flex-col gap-5 border-t border-cream/25 py-6 md:flex-row md:items-center md:gap-12">
+            <h3 class="font-display text-3xl font-bold md:flex-1">{t.title}</h3>
+            {[
+              ['Produzione', t.production, 'bg-sun', 'text-sun'],
+              ['Experience', t.experience, 'bg-leaf', 'text-leaf'],
+            ].map(([name, value, bar, text]) => (
+              <div class="flex flex-col gap-2 md:w-[300px]">
+                <div class="flex justify-between font-mono text-xs uppercase tracking-[0.2em]">
+                  <span>{name}</span>
+                  <span class={`font-bold ${text}`}>{value}%</span>
+                </div>
+                <div
+                  class="h-2 bg-cream/20"
+                  role="progressbar"
+                  aria-label={`${name} ${t.title}`}
+                  aria-valuenow={Number(value)}
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                >
+                  <div class={`h-full ${bar}`} style={`width:${value}%`}></div>
+                </div>
+              </div>
+            ))}
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section id="avvisami" class="bg-sun px-6 py-24 lg:px-12 lg:py-36">
+      <div class="mx-auto flex max-w-3xl flex-col items-center gap-8 text-center">
+        <p class={label}>04 / Pre-lancio</p>
+        <h2 class="font-display text-5xl font-extrabold leading-[1.05] sm:text-6xl lg:text-7xl">
+          Il disco sta arrivando.
+        </h2>
+        <p class="max-w-xl text-base leading-relaxed">
+          Ascolto gratuito sul sito e vinile in preordine. Lascia la tua email: ti scriviamo una
+          volta sola, quando si parte.
+        </p>
+        <form action="#" class="flex w-full max-w-xl flex-col gap-3 sm:flex-row">
+          <label class="sr-only" for="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            required
+            placeholder="la.tua@email.it"
+            class="flex-1 border-2 border-navy bg-cream px-6 py-5 font-mono text-sm tracking-wide placeholder:text-navy/60 focus:outline-none focus-visible:ring-4 focus-visible:ring-navy/30"
+          />
+          <button
+            type="submit"
+            class="inline-flex items-center justify-center gap-3 bg-navy px-8 py-5 font-mono text-sm font-bold uppercase tracking-[0.15em] text-sun transition hover:bg-sky hover:text-navy"
+          >
+            Avvisami <span aria-hidden="true">→</span>
+          </button>
+        </form>
+        <p class="font-mono text-xs uppercase tracking-[0.2em]">Niente spam. Solo il disco.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="flex flex-col items-start justify-between gap-3 bg-navy px-6 py-8 text-cream sm:flex-row sm:items-center lg:px-12">
+    <span class={`${label} font-bold`}>Samentosky Experience</span>
+    <span class={label}>© 2026 Samentosky</span>
+  </footer>
+</Layout>

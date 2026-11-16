@@ -2,19 +2,19 @@
 import Layout from '../layouts/Layout.astro';
 
 const tracks = [
-  { title: 'Ombra e illusione', production: 78 },
-  { title: "La scimmia d'oro", production: 86 },
-  { title: "L'attesa", production: 71 },
-  { title: 'Cometa', production: 92 },
-  { title: 'Vuoto al centro', production: 67 },
-  { title: 'Tutto e niente', production: 84 },
-  { title: 'Nel deserto', production: 73 },
-  { title: 'Belle stelle', production: 89 },
-  { title: 'Lo fai', production: 94 },
-  { title: 'La soglia', production: 81 },
-  { title: "L'ultimo domino", production: 69 },
-  { title: 'Tempo relativo', production: 76 },
-].map((t) => ({ ...t, experience: 0 }));
+  { title: 'La soglia', production: 100 },
+  { title: 'Ombra e illusione', production: 100 },
+  { title: "Scimmia d'oro", production: 100 },
+  { title: 'Tutto e niente', production: 100 },
+  { title: 'Lo fai', production: 100 },
+  { title: 'Belle stelle', production: 100 },
+  { title: 'Tempo relativo', production: 100 },
+  { title: 'Vuoto al centro', production: 100 },
+  { title: "L'attesa", production: 100 },
+  { title: 'Il deserto', production: 100 },
+  { title: 'Cometa', production: 100 },
+  { title: 'Ultimo domino', production: 100 },
+].map((t, i) => ({ ...t, number: String(i + 1).padStart(2, '0'), experience: 0 }));
 
 const nav = [
   { label: 'Il disco', href: '#disco' },
@@ -151,7 +151,7 @@ const label = 'font-mono text-[13px] uppercase tracking-[0.2em]';
       <ul class="mt-14 border-b border-cream/25">
         {tracks.map((t) => (
           <li class="flex flex-col gap-5 border-t border-cream/25 py-6 md:flex-row md:items-center md:gap-12">
-            <h3 class="font-display text-3xl font-bold md:flex-1">{t.title}</h3>
+            <h3 class="font-display text-3xl font-bold md:flex-1"><span class="mr-4 font-mono text-base font-normal text-cream/60">{t.number}</span>{t.title}</h3>
             {[
               ['Produzione', t.production, 'bg-sun', 'text-sun'],
               ['Experience', t.experience, 'bg-leaf', 'text-leaf'],

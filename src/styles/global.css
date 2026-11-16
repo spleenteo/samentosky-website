@@ -22,7 +22,7 @@
   }
 }
 
-/* Il vinile della hero gira a 33⅓ giri al minuto: un giro ogni 1,8 secondi */
+/* Il vinile della hero gira lentamente: un giro ogni 20 secondi */
 @keyframes vinyl-spin {
   to {
     rotate: 360deg;
@@ -30,7 +30,7 @@
 }
 
 .vinyl-spin {
-  animation: vinyl-spin calc(60s / 33.333) linear infinite;
+  animation: vinyl-spin 20s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
